@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- General keymaps
-keymap.set("i", "jk", "<ESC>")           -- exit insert mode with jk
+
 keymap.set("i", "ii", "<ESC>")           -- exit insert mode with ii
 keymap.set("n", "<leader>wq", ":wq<CR>") -- save and quit
 keymap.set("n", "<leader>qq", ":q!<CR>") -- quit without saving
@@ -37,21 +37,3 @@ keymap.set("n", "<leader>cp", "[c")             -- previous diff hunk
 keymap.set("n", "<leader>qn", ":cnext<CR>") -- jump to next quickfix list item
 keymap.set("n", "<leader>qp", ":cprev<CR>") -- jump to prev quickfix list item
 
--- Telescope
-keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {})
-keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, {})
-keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, {})
-keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, {})
-keymap.set('n', '<leader>fs', require('telescope.builtin').current_buffer_fuzzy_find, {})
-
-
-local cmp = require('cmp')
-cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-        -- `Enter` key to confirm completion
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-
-        -- Ctrl+Space to trigger completion menu
-        ['<C-Space>'] = cmp.mapping.complete(),
-    })
-})
