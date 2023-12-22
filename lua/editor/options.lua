@@ -95,7 +95,8 @@ local disabled_built_ins = {
 -----------------------------------------------------------
 -- Disable nvim intro
 opt.shortmess:append "sI"
-
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 -- Disable builtin plugins
 for _, plugin in pairs(disabled_built_ins) do
    g["loaded_" .. plugin] = 1
