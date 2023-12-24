@@ -33,4 +33,5 @@ require("lazy").setup("plugins", {
     notify = true,  -- turn off notifications whenever plugin changes are made
   },
 })
+require('plugin_config/vim_cmd')
 require('plugin_config/lspconfig')

@@ -1,9 +1,9 @@
 -----------------------------------------------------------
 -- General Neovim settings and configuration
+-- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/options.lua
 -----------------------------------------------------------
 
--- Repository: 
--- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/options.lua
+
 -- Default options are not included
 -- See: https://neovim.io/doc/user/vim_diff.html
 -- [2] Defaults - *nvim-defaults*
@@ -18,7 +18,7 @@ local options = {
     mouse = "a",               -- Enable mouse support
     clipboard = "unnamedplus", -- Copy/paste to system clipboard
     swapfile = false,          -- Don't use swapfile
-    fileencoding = "utf-8", 
+    fileencoding = "utf-8",
     -----------------------------------------------------------
     -- Neovim UI
     -----------------------------------------------------------
@@ -42,7 +42,6 @@ local options = {
     -- Editing
     -----------------------------------------------------------
     undofile = true,
-    
     -----------------------------------------------------------
     -- Tabs, indent
     -----------------------------------------------------------
@@ -93,8 +92,10 @@ local disabled_built_ins = {
 -----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
+
 -- Disable nvim intro
 opt.shortmess:append "sI"
+-- https://neovim.io/doc/user/pi_netrw.html
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 -- Disable builtin plugins

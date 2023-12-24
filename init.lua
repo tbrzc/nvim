@@ -1,6 +1,3 @@
-require('editor/options')
-require('core/plugin-manager')
 require('core/keymaps')
-require('core/keymaps-plugin')
-require('config/editor')
-require('config/autocmds')
+require('core/options')
+require('plugin_manager')
