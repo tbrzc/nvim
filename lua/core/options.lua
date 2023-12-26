@@ -10,7 +10,10 @@
 
 local g = vim.g                -- Global variables
 local opt = vim.opt            -- Set options (global/buffer/windows-scoped)
+opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 local options = {
+
     -----------------------------------------------------------
     -- See: https://neovim.io/doc/user/options.html
     -- General
