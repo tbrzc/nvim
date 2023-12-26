@@ -58,3 +58,16 @@ keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 keymap.set('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 keymap.set('n', '<leader>tr', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 keymap.set('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>')
+
+-- File tree
+keymap.set('n', '<leader>ee', '<cmd>NvimTreeToggle<cr>')
+
+-- Telescope
+keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {})
+keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, {})
+keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, {})
+keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, {})
+keymap.set('n', '<leader>fs', require('telescope.builtin').current_buffer_fuzzy_find, {})
+keymap.set('n', '<leader>fo', require('telescope.builtin').lsp_document_symbols, {})
+keymap.set('n', '<leader>fi', require('telescope.builtin').lsp_incoming_calls, {})
+keymap.set('n', '<leader>fm', function() require('telescope.builtin').treesitter({default_text=":method:"}) end)

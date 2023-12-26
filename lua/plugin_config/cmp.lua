@@ -15,14 +15,14 @@ function M.setup()
       end,
     },
     window = {
-         completion = cmp.config.window.bordered(),
-         documentation = cmp.config.window.bordered(),
-      },
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
     mapping = {
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.abort(),
-      
+
       ["<C-n>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -33,13 +33,11 @@ function M.setup()
         end
       end, { "i", "s" }),
       ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-y>"] = cmp.mapping.confirm {
-        select = true
-      },
+
       ['<C-m>'] = cmp.mapping.complete(),
       ['<Tab>'] = cmp.mapping(function(fallback)
         local col = vim.fn.col('.') - 1
-      
+
         if cmp.visible() then
           cmp.select_next_item(select_opts)
         elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
@@ -49,7 +47,7 @@ function M.setup()
         end
       end, {'i', 's'}),
       ['<C-y>'] = cmp.mapping.confirm({select = true}),
-['<CR>'] = cmp.mapping.confirm({select = false}),
+      ['<CR>'] = cmp.mapping.confirm({select = false}),
 
     },
     sources = {
