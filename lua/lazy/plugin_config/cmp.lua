@@ -1,4 +1,3 @@
-
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
@@ -22,7 +21,6 @@ function M.setup()
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.abort(),
-
       ["<C-n>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -33,11 +31,9 @@ function M.setup()
         end
       end, { "i", "s" }),
       ["<C-p>"] = cmp.mapping.select_prev_item(),
-
       ['<C-m>'] = cmp.mapping.complete(),
       ['<Tab>'] = cmp.mapping(function(fallback)
         local col = vim.fn.col('.') - 1
-
         if cmp.visible() then
           cmp.select_next_item(select_opts)
         elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
@@ -45,10 +41,9 @@ function M.setup()
         else
           cmp.complete()
         end
-      end, {'i', 's'}),
-      ['<C-y>'] = cmp.mapping.confirm({select = true}),
-      ['<CR>'] = cmp.mapping.confirm({select = false}),
-
+      end, { 'i', 's' }),
+      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+      ['<CR>'] = cmp.mapping.confirm({ select = false }),
     },
     sources = {
       { name = "nvim_lsp" },
@@ -63,7 +58,7 @@ function M.setup()
   -- Set configuration for specific filetype.
   cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
-      { name = 'git' },   -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+      { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
     }, {
       { name = 'buffer' },
     })

@@ -8,14 +8,14 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      {'hrsh7th/cmp-nvim-lsp'},
+      { 'hrsh7th/cmp-nvim-lsp' },
     }
   },
   -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
-      {'L3MON4D3/LuaSnip'}
+      { 'L3MON4D3/LuaSnip' }
     },
   },
 }

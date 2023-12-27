@@ -8,8 +8,8 @@
 -- See: https://neovim.io/doc/user/vim_diff.html
 -- [2] Defaults - *nvim-defaults*
 
-local g = vim.g                -- Global variables
-local opt = vim.opt            -- Set options (global/buffer/windows-scoped)
+local g = vim.g     -- Global variables
+local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 
 local options = {
     completeopt = "menu,menuone,noselect",
@@ -24,18 +24,18 @@ local options = {
     -----------------------------------------------------------
     -- Neovim UI
     -----------------------------------------------------------
-    number = true,             -- Show line number
-    showmatch = true,          -- Highlight matching parenthesis
-    foldmethod = "marker",     -- Enable folding (default 'foldmarker')
-    colorcolumn = "80",        -- Line lenght marker at 80 columns
-    splitright = true,         -- Vertical split to the right
-    splitbelow = true,         -- Horizontal split to the bottom
-    ignorecase = true,         -- Ignore case letters when search
-    smartcase = true,          -- Ignore lowercase for the whole pattern
-    linebreak = true,          -- Wrap on word boundary
-    termguicolors = true,      -- Enable 24-bit RGB colors
-    laststatus = 3,            -- Set global statusline
-    cursorline = true,         -- Enable highlighting of the current line
+    number = true,         -- Show line number
+    showmatch = true,      -- Highlight matching parenthesis
+    foldmethod = "marker", -- Enable folding (default 'foldmarker')
+    colorcolumn = "80",    -- Line lenght marker at 80 columns
+    splitright = true,     -- Vertical split to the right
+    splitbelow = true,     -- Horizontal split to the bottom
+    ignorecase = true,     -- Ignore case letters when search
+    smartcase = true,      -- Ignore lowercase for the whole pattern
+    linebreak = true,      -- Wrap on word boundary
+    termguicolors = true,  -- Enable 24-bit RGB colors
+    laststatus = 3,        -- Set global statusline
+    cursorline = true,     -- Enable highlighting of the current line
     breakindent = true,
     relativenumber = true,
     textwidth = 80,
@@ -47,49 +47,49 @@ local options = {
     -----------------------------------------------------------
     -- Tabs, indent
     -----------------------------------------------------------
-    expandtab = true,          -- Use spaces instead of tabs
-    shiftwidth = 2,            -- Shift 2 spaces when tab
-    tabstop = 2,               -- 1 tab == 2 spaces
-    smartindent = true,        -- Autoindent new lines
+    expandtab = true,   -- Use spaces instead of tabs
+    shiftwidth = 2,     -- Shift 2 spaces when tab
+    tabstop = 2,        -- 1 tab == 2 spaces
+    smartindent = true, -- Autoindent new lines
 
     -----------------------------------------------------------
     -- Memory, CPU
     -----------------------------------------------------------
-    hidden = true,             -- Enable background buffers
-    history = 100,             -- Remember N lines in history
-    lazyredraw = true,         -- Faster scrolling
-    synmaxcol = 240,           -- Max column for syntax highlight
-    updatetime = 250           -- ms to wait for trigger an event
+    hidden = true,     -- Enable background buffers
+    history = 100,     -- Remember N lines in history
+    lazyredraw = true, -- Faster scrolling
+    synmaxcol = 240,   -- Max column for syntax highlight
+    updatetime = 250   -- ms to wait for trigger an event
 }
 local disabled_built_ins = {
-   "2html_plugin",
-   "tohtml",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
-   "tutor",
-   "rplugin",
-   "syntax",
-   "synmenu",
-   "optwin",
-   "compiler",
-   "bugreport",
-   "ftplugin",
-   "editorconfig"
+    "2html_plugin",
+    "tohtml",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "logipat",
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "matchit",
+    "tar",
+    "tarPlugin",
+    "rrhelper",
+    "spellfile_plugin",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+    "tutor",
+    "rplugin",
+    "syntax",
+    "synmenu",
+    "optwin",
+    "compiler",
+    "bugreport",
+    "ftplugin",
+    "editorconfig"
 }
 -----------------------------------------------------------
 -- Startup
@@ -101,11 +101,9 @@ opt.shortmess:append "sI"
 
 -- Disable builtin plugins
 for _, plugin in pairs(disabled_built_ins) do
-   g["loaded_" .. plugin] = 1
+    g["loaded_" .. plugin] = 1
 end
 -- Load options
 for k, v in pairs(options) do
     opt[k] = v
 end
-
-
