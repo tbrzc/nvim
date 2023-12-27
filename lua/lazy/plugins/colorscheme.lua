@@ -1,4 +1,4 @@
-utils = require('utils')
+local utils = require('utils')
 local theme = utils.setup_theme
 return {
 

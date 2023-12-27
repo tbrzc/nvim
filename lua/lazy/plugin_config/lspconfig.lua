@@ -12,7 +12,11 @@ end)
 
 -- here you can configure the language servers
 
-mason.setup({})
+mason.setup({
+  ui = {
+    border = "rounded"
+  }
+})
 mason_lspconfig.setup({
   ensure_installed = servers,
   handlers = {

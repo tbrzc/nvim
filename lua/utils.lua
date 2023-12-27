@@ -2,14 +2,14 @@ local utils = {}
 
 
 utils.parsers = {
-    "bash", "c", "cpp", "cmake", "css",
+    "css",
     "gitignore", "html",
-    "javascript", "lua", "make", "scss", "sql",
+    "javascript", "lua", "scss",
     "typescript",
 }
 
 utils.servers = {
-    "html", "lua_ls", "tsserver", "tailwindcss", "cssls", "ast_grep"
+    "html", "lua_ls", "tsserver", "tailwindcss", "cssls",
 }
 
 utils.server_configs = {
