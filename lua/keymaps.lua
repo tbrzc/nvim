@@ -1,13 +1,13 @@
 -- Set leader key to space
-vim.g.mapleader = " "
 
+local g = vim.g 
 local keymap = vim.keymap
 local api = vim.api
 local diagnostic = vim.diagnostic
 local buff = vim.lsp.buf
 local builtin = require('telescope.builtin')
 
-
+g.mapleader = " "
 -- General keymaps
 
 keymap.set("i", "ii", "<ESC>")

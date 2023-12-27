@@ -10,10 +10,9 @@
 
 local g = vim.g                -- Global variables
 local opt = vim.opt            -- Set options (global/buffer/windows-scoped)
-opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 local options = {
-
+    completeopt = "menu,menuone,noselect",
     -----------------------------------------------------------
     -- See: https://neovim.io/doc/user/options.html
     -- General
@@ -99,8 +98,7 @@ local disabled_built_ins = {
 -- Disable nvim intro
 opt.shortmess:append "sI"
 -- https://neovim.io/doc/user/pi_netrw.html
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+
 -- Disable builtin plugins
 for _, plugin in pairs(disabled_built_ins) do
    g["loaded_" .. plugin] = 1
