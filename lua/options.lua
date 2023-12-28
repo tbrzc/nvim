@@ -17,9 +17,8 @@ local options = {
     -- See: https://neovim.io/doc/user/options.html
     -- General
     -----------------------------------------------------------
-    mouse = "a",               -- Enable mouse support
-    clipboard = "unnamedplus", -- Copy/paste to system clipboard
-    swapfile = false,          -- Don't use swapfile
+    mouse = "a",      -- Enable mouse support
+    swapfile = false, -- Don't use swapfile
     fileencoding = "utf-8",
     -----------------------------------------------------------
     -- Neovim UI
@@ -97,6 +96,9 @@ local disabled_built_ins = {
 
 -- Disable nvim intro
 opt.shortmess:append "sI"
+--- clipboard ---
+opt.clipboard:prepend { "unnamed", "unnamedplus" } -- windows
+-- opt.clipboard:append { "unnamedplus" } -- unix
 -- https://neovim.io/doc/user/pi_netrw.html
 
 -- Disable builtin plugins

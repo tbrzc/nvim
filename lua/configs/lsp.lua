@@ -1,15 +1,54 @@
-local cmp = require 'cmp'
-local lspconfig = require('lspconfig')
-local servers = require("utils").servers
-local luasnip = require('luasnip')
-local M = {}
-function M.setup()
+local lsp = {}
+
+
+
+
+
+
+
+
+
+lsp.lspconfig = function()
+    local lsp_zero = require('lsp-zero')
+    local mason = require('mason')
+    local mason_lspconfig = require('mason-lspconfig')
+    local servers = require("utils").servers
+    local server_configs = require("utils").server_configs
+
+    lsp_zero.on_attach(function(client, bufnr)
+        -- see :help lsp-zero-keybindings
+        -- to learn the available actions
+        lsp_zero.default_keymaps({ buffer = bufnr })
+    end)
+
+    -- here you can configure the language servers
+
+    mason.setup({
+        ui = {
+            border = "rounded"
+        }
+    })
+    mason_lspconfig.setup({
+        ensure_installed = servers,
+        handlers = {
+            lsp_zero.default_setup,
+            server_configs,
+        },
+    })
+end
+
+lsp.cmp = function()
+    local cmp = require 'cmp'
+    local lspconfig = require('lspconfig')
+    local servers = require("utils").servers
+    local luasnip = require('luasnip')
+
     cmp.setup({
         snippet = {
             -- REQUIRED - you must specify a snippet engine
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                luasnip.lsp_expand(args.body)        -- For `luasnip` users.
+                --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                luasnip.lsp_expand(args.body) -- For `luasnip` users.
                 -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
                 -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
             end,
@@ -34,8 +73,9 @@ function M.setup()
             -- { name = 'snippy' }, -- For snippy users.
             { name = "copilot" },
 
-        }, {
             { name = 'buffer' },
+
+
         })
     })
 
@@ -67,15 +107,18 @@ function M.setup()
             { name = 'cmdline' }
         })
     })
+
+
+    -- Set up lspconfig.
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+
+    for _, server in pairs(servers) do
+        lspconfig[server].setup {
+            capabilities = capabilities
+        }
+    end
 end
 
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 
-for _, server in pairs(servers) do
-    lspconfig[server].setup {
-        capabilities = capabilities
-    }
-end
-return M
+return lsp
