@@ -2,9 +2,19 @@ local utils = require("utils")
 
 local plugin = utils.setup_plugin
 local theme = utils.setup_theme
+local config = require("configs.ui")
 
 local plugins = {
   --- theme ---
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "meuter/lualine-so-fancy.nvim",
+    },
+    opts = config.lualine
+
+  },
   {
 
     'rebelot/kanagawa.nvim',
@@ -36,6 +46,9 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "VeryLazy",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
     config = plugin("c", "treesitter", "misc")
 
   },
@@ -121,6 +134,11 @@ local plugins = {
     main = "ibl",
     opts = {},
     config = plugin("c", "ibl", "misc"),
-  }
+  },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+    config = plugin("c", "ufo", "misc"),
+  },
 }
 return plugins

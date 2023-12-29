@@ -8,31 +8,31 @@
 
 local g = vim.g     -- Global variables
 local opt = vim.opt -- Set options (global/buffer/windows-scoped)
-
+local o = vim.o
 -----------------------------------------------------------
 -- See: https://neovim.io/doc/user/options.html
 -- General
 -----------------------------------------------------------
 local options = {
   completeopt = "menu,menuone,noselect",
-  mouse = "a",        -- Enable mouse support
-  swapfile = false,   -- Don't use swapfile
+  mouse = "a",      -- Enable mouse support
+  swapfile = false, -- Don't use swapfile
   fileencoding = "utf-8",
   -----------------------------------------------------------
   -- Neovim UI
   -----------------------------------------------------------
-  number = true,           -- Show line number
-  showmatch = true,        -- Highlight matching parenthesis
-  foldmethod = "marker",   -- Enable folding (default 'foldmarker')
-  colorcolumn = "80",      -- Line lenght marker at 80 columns
-  splitright = true,       -- Vertical split to the right
-  splitbelow = true,       -- Horizontal split to the bottom
-  ignorecase = true,       -- Ignore case letters when search
-  smartcase = true,        -- Ignore lowercase for the whole pattern
-  linebreak = true,        -- Wrap on word boundary
-  termguicolors = true,    -- Enable 24-bit RGB colors
-  laststatus = 3,          -- Set global statusline
-  cursorline = true,       -- Enable highlighting of the current line
+  number = true,        -- Show line number
+  showmatch = true,     -- Highlight matching parenthesis
+  --foldmethod = "marker", -- Enable folding (default 'foldmarker')
+  colorcolumn = "80",   -- Line lenght marker at 80 columns
+  splitright = true,    -- Vertical split to the right
+  splitbelow = true,    -- Horizontal split to the bottom
+  ignorecase = true,    -- Ignore case letters when search
+  smartcase = true,     -- Ignore lowercase for the whole pattern
+  linebreak = true,     -- Wrap on word boundary
+  termguicolors = true, -- Enable 24-bit RGB colors
+  laststatus = 3,       -- Set global statusline
+  cursorline = true,    -- Enable highlighting of the current line
   breakindent = true,
   relativenumber = true,
   textwidth = 80,
@@ -44,19 +44,19 @@ local options = {
   -----------------------------------------------------------
   -- Tabs, indent
   -----------------------------------------------------------
-  expandtab = true,     -- Use spaces instead of tabs
-  shiftwidth = 2,       -- Shift 2 spaces when tab
-  tabstop = 2,          -- 1 tab == 2 spaces
-  smartindent = true,   -- Autoindent new lines
+  expandtab = true,   -- Use spaces instead of tabs
+  shiftwidth = 2,     -- Shift 2 spaces when tab
+  tabstop = 2,        -- 1 tab == 2 spaces
+  smartindent = true, -- Autoindent new lines
 
   -----------------------------------------------------------
   -- Memory, CPU
   -----------------------------------------------------------
-  hidden = true,       -- Enable background buffers
-  history = 100,       -- Remember N lines in history
-  lazyredraw = true,   -- Faster scrolling
-  synmaxcol = 240,     -- Max column for syntax highlight
-  updatetime = 250     -- ms to wait for trigger an event
+  hidden = true,     -- Enable background buffers
+  history = 100,     -- Remember N lines in history
+  lazyredraw = true, -- Faster scrolling
+  synmaxcol = 240,   -- Max column for syntax highlight
+  updatetime = 250   -- ms to wait for trigger an event
 }
 local disabled_built_ins = {
   "2html_plugin",
@@ -89,6 +89,12 @@ local disabled_built_ins = {
   "ftplugin",
   "editorconfig"
 }
+local fold_options = {
+  foldcolumn = '1', -- '0' is not bad
+  foldlevel = 99,   -- Using ufo provider need a large value, feel free to decrease the value
+  foldlevelstart = 99,
+  foldenable = true,
+}
 -----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
@@ -106,4 +112,7 @@ end
 -- Load options
 for k, v in pairs(options) do
   opt[k] = v
+end
+for k, v in pairs(fold_options) do
+  o[k] = v
 end
