@@ -13,8 +13,6 @@ local plugins = {
     config = theme("c", "kanagawa")
 
   },
-
-
   {
     "dstein64/vim-startuptime"
   },
