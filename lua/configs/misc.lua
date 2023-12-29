@@ -6,7 +6,10 @@ misc.treesitter = function()
 
   nvim_treesitter.setup({
     ensure_installed = parsers,
-    highlight = { enable = true }
+    highlight = { enable = true },
+    indent = {
+      enable = true,
+    },
   })
 end
 
@@ -27,10 +30,10 @@ misc.telescope = function()
   require('telescope').setup {
     extensions = {
       fzf = {
-        fuzzy = true,                           -- false will only do exact matching
-        override_generic_sorter = true,         -- override the generic sorter
-        override_file_sorter = true,            -- override the file sorter
-        case_mode = "smart_case",               -- or "ignore_case" or "respect_case"
+        fuzzy = true,                   -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        override_file_sorter = true,    -- override the file sorter
+        case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
         -- the default case_mode is "smart_case"
       }
     }
@@ -45,6 +48,17 @@ misc.copilot = function()
   copilot.setup({
     suggestion = { enabled = false },
     panel = { enabled = false },
+  })
+end
+
+
+misc.ibl = function()
+  local ibl = require("ibl")
+
+
+
+  ibl.setup({
+    indent = { highlight = highlight, char = "┆" },
   })
 end
 

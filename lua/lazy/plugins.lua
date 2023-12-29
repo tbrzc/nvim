@@ -35,7 +35,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    lazy = false,
+    event = "VeryLazy",
     config = plugin("c", "treesitter", "misc")
 
   },
@@ -116,5 +116,11 @@ local plugins = {
     },
     config = plugin("c", "cmp", "lsp"),
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+    config = plugin("c", "ibl", "misc"),
+  }
 }
 return plugins
