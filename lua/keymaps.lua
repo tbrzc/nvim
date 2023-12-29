@@ -1,13 +1,12 @@
--- Set leader key to space
-
 local g = vim.g
 local keymap = vim.keymap
-
 local diagnostic = vim.diagnostic
-
 local builtin = require('telescope.builtin')
 
+-- Set leader key to space
+
 g.mapleader = " "
+
 -- General keymaps
 
 keymap.set("i", "ii", "<ESC>")
@@ -42,9 +41,11 @@ keymap.set('n', '<leader>q', diagnostic.setloclist)
 
 
 -- File tree
+
 keymap.set('n', '<leader>ee', '<cmd>NvimTreeToggle<cr>')
 
 -- Telescope
+
 keymap.set('n', '<leader>ff', builtin.find_files, {})
 keymap.set('n', '<leader>fg', builtin.live_grep, {})
 keymap.set('n', '<leader>fb', builtin.buffers, {})

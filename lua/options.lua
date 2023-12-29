@@ -2,8 +2,6 @@
 -- General Neovim settings and configuration
 -- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/options.lua
 -----------------------------------------------------------
-
-
 -- Default options are not included
 -- See: https://neovim.io/doc/user/vim_diff.html
 -- [2] Defaults - *nvim-defaults*
@@ -11,12 +9,12 @@
 local g = vim.g     -- Global variables
 local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 
+-----------------------------------------------------------
+-- See: https://neovim.io/doc/user/options.html
+-- General
+-----------------------------------------------------------
 local options = {
     completeopt = "menu,menuone,noselect",
-    -----------------------------------------------------------
-    -- See: https://neovim.io/doc/user/options.html
-    -- General
-    -----------------------------------------------------------
     mouse = "a",      -- Enable mouse support
     swapfile = false, -- Don't use swapfile
     fileencoding = "utf-8",
@@ -67,6 +65,7 @@ local disabled_built_ins = {
     "getscriptPlugin",
     "gzip",
     "logipat",
+    -- https://neovim.io/doc/user/pi_netrw.html
     "netrw",
     "netrwPlugin",
     "netrwSettings",
@@ -99,7 +98,6 @@ opt.shortmess:append "sI"
 --- clipboard ---
 opt.clipboard:prepend { "unnamed", "unnamedplus" } -- windows
 -- opt.clipboard:append { "unnamedplus" } -- unix
--- https://neovim.io/doc/user/pi_netrw.html
 
 -- Disable builtin plugins
 for _, plugin in pairs(disabled_built_ins) do
