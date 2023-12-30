@@ -122,10 +122,10 @@ local plugins = {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-cmdline",
-      --"hrsh7th/cmp-git",
+      "hrsh7th/cmp-git",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
-      --"windwp/nvim-autopairs",
+      "windwp/nvim-autopairs",
     },
     config = plugin("c", "cmp", "lsp"),
   },
@@ -140,5 +140,26 @@ local plugins = {
     dependencies = { 'kevinhwang91/promise-async' },
     config = plugin("c", "ufo", "misc"),
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = plugin("c", "gitsigns", "misc")
+  },
+  {
+    "tpope/vim-fugitive",
+    cmd = {"Git"}
+  },
+  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
+  },
+  {
+    "startup-nvim/startup.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = plugin("d", "startup")
+  }
 }
 return plugins

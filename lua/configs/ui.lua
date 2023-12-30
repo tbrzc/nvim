@@ -13,7 +13,7 @@ ui.lualine = {
     },
     sections = {
         lualine_a = {
-            { "fancy_mode", width = 6 }
+            { "fancy_mode", width = 7 }
         },
         lualine_b = {
             { "fancy_branch" },
