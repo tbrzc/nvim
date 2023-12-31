@@ -14,6 +14,7 @@ local plugins = {
     },
     opts = config.lualine
 
+
   },
   {
 

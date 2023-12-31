@@ -97,6 +97,7 @@ local fold_options = {
 }
 --vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
+vim.o.background = 'dark'
 -----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
