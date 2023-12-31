@@ -146,7 +146,7 @@ local plugins = {
   },
   {
     "tpope/vim-fugitive",
-    cmd = {"Git"}
+    cmd = { "Git" }
   },
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
@@ -157,9 +157,18 @@ local plugins = {
     lazy = false,
   },
   {
-    "startup-nvim/startup.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-    config = plugin("d", "startup")
+    "goolord/alpha-nvim",
+    config = plugin("c", "alpha", "misc")
+  },
+  {
+    "Shatur/neovim-session-manager",
+    config = plugin("c", "session_manager", "misc")
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   }
 }
 return plugins

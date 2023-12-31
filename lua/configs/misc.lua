@@ -128,49 +128,78 @@ misc.ufo = function()
     end
   })
 end
-misc.gitsigns = function ()
+misc.gitsigns = function()
   local gitsigns = require("gitsigns")
   gitsigns.setup {
-  signs = {
-    add          = { text = '│' },
-    change       = { text = '│' },
-    delete       = { text = '_' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
-  },
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
-  watch_gitdir = {
-    follow_files = true
-  },
-  attach_to_untracked = true,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
-    ignore_whitespace = false,
-    virt_text_priority = 100,
-  },
-  current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-  sign_priority = 6,
-  update_debounce = 100,
-  status_formatter = nil, -- Use default
-  max_file_length = 40000, -- Disable if file is longer than this (in lines)
-  preview_config = {
-    -- Options passed to nvim_open_win
-    border = 'single',
-    style = 'minimal',
-    relative = 'cursor',
-    row = 0,
-    col = 1
-  },
-  yadm = {
-    enable = false
-  },
-}
+    signs                        = {
+      add          = { text = '│' },
+      change       = { text = '│' },
+      delete       = { text = '_' },
+      topdelete    = { text = '‾' },
+      changedelete = { text = '~' },
+      untracked    = { text = '┆' },
+    },
+    signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
+    numhl                        = true,  -- Toggle with `:Gitsigns toggle_numhl`
+    linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+    watch_gitdir                 = {
+      follow_files = true
+    },
+    attach_to_untracked          = true,
+    current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts      = {
+      virt_text = true,
+      virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+      delay = 1000,
+      ignore_whitespace = false,
+      virt_text_priority = 100,
+    },
+    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+    sign_priority                = 6,
+    update_debounce              = 100,
+    status_formatter             = nil,   -- Use default
+    max_file_length              = 40000, -- Disable if file is longer than this (in lines)
+    preview_config               = {
+      -- Options passed to nvim_open_win
+      border = 'single',
+      style = 'minimal',
+      relative = 'cursor',
+      row = 0,
+      col = 1
+    },
+    yadm                         = {
+      enable = false
+    },
+  }
 end
+misc.alpha = function()
+  local alpha = require("alpha")
+  alpha.setup(
+    require 'alpha.themes.dashboard'.config
+  )
+end
+
+misc.session_manager = function()
+  local Path = require('plenary.path')
+  local config = require('session_manager.config')
+  local session_manager = require('session_manager')
+  session_manager.setup({
+    sessions_dir = Path:new(vim.fn.stdpath('data'), 'sessions'), -- The directory where the session files will be saved.
+    session_filename_to_dir = session_filename_to_dir,           -- Function that replaces symbols into separators and colons to transform filename into a session directory.
+    dir_to_session_filename = dir_to_session_filename,           -- Function that replaces separators and colons into special symbols to transform session directory into a filename. Should use `vim.loop.cwd()` if the passed `dir` is `nil`.
+    autoload_mode = config.AutoloadMode.LastSession,             -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
+    autosave_last_session = true,                                -- Automatically save last session on exit and on session switch.
+    autosave_ignore_not_normal = true,                           -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
+    autosave_ignore_dirs = {},                                   -- A list of directories where the session will not be autosaved.
+    autosave_ignore_filetypes = {                                -- All buffers of these file types will be closed before the session is saved.
+      'gitcommit',
+      'gitrebase',
+    },
+    autosave_ignore_buftypes = {},    -- All buffers of these bufer types will be closed before the session is saved.
+    autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
+    max_path_length = 80,             -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
+  })
+end
+
 return misc
