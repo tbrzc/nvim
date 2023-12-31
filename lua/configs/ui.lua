@@ -3,7 +3,7 @@ local ui = {}
 ui.lualine = {
 
     options = {
-        theme = "seoul256",
+        theme = "vscode",
         component_separators = { left = "│", right = "│" },
         section_separators = { left = "", right = "" },
         globalstatus = true,

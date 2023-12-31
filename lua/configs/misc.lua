@@ -173,12 +173,6 @@ misc.gitsigns = function()
     },
   }
 end
-misc.alpha = function()
-  local alpha = require("alpha")
-  alpha.setup(
-    require 'alpha.themes.dashboard'.config
-  )
-end
 
 misc.session_manager = function()
   local Path = require('plenary.path')

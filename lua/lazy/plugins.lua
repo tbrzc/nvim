@@ -17,10 +17,10 @@ local plugins = {
   },
   {
 
-    'rebelot/kanagawa.nvim',
+    "Mofiqul/vscode.nvim",
     lazy = false,
     priority = 1000,
-    config = theme("c", "kanagawa")
+    config = theme("c", "vscode")
 
   },
   {
@@ -155,10 +155,6 @@ local plugins = {
       -- add any options here
     },
     lazy = false,
-  },
-  {
-    "goolord/alpha-nvim",
-    config = plugin("c", "alpha", "misc")
   },
   {
     "Shatur/neovim-session-manager",
