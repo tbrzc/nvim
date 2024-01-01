@@ -18,15 +18,16 @@ local plugins = {
   },
   {
 
-    "Mofiqul/vscode.nvim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
-    config = theme("c", "vscode")
+    config = theme("c", "kanagawa")
 
   },
-  {
-    "dstein64/vim-startuptime"
-  },
+  --PERF: 
+  --{
+  --  "dstein64/vim-startuptime"
+  --},
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -158,14 +159,18 @@ local plugins = {
     lazy = false,
   },
   {
-    "Shatur/neovim-session-manager",
-    config = plugin("c", "session_manager", "misc")
-  },
-  {
     'stevearc/oil.nvim',
     opts = {},
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  }
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = config.todo_comments
+  }, {
+  "brenoprata10/nvim-highlight-colors",
+  config = plugin("d", "nvim-highlight-colors")
+}
 }
 return plugins
