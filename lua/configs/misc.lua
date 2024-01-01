@@ -174,4 +174,17 @@ misc.gitsigns = function()
   }
 end
 
+misc.alpha = function()
+  require 'alpha'.setup(require 'alpha.themes.dashboard'.onfig)
+end
+
+misc.auto_session = function()
+  local auto_session = require('auto-session')
+  auto_session.setup {
+    log_level = 'info',
+    auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+
+  }
+end
+
 return misc

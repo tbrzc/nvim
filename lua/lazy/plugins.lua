@@ -24,7 +24,7 @@ local plugins = {
     config = theme("c", "kanagawa")
 
   },
-  --PERF: 
+  --PERF:
   --{
   --  "dstein64/vim-startuptime"
   --},
@@ -168,9 +168,27 @@ local plugins = {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = config.todo_comments
-  }, {
-  "brenoprata10/nvim-highlight-colors",
-  config = plugin("d", "nvim-highlight-colors")
-}
+  },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    config = plugin("d", "nvim-highlight-colors")
+  },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = plugin("d", "bufferline")
+  },
+  {
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = plugin("c", "alpha", "misc")
+  },
+  {
+    'rmagatti/auto-session',
+    config = plugin("c", "auto_session", "misc")
+  },
+
+
 }
 return plugins
