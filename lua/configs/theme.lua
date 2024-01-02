@@ -3,7 +3,7 @@ local configs = {}
 configs.kanagawa = function()
   local kanagawa = require("kanagawa");
   kanagawa.setup({
-    compile = true,  -- enable compiling the colorscheme
+    compile = true,   -- enable compiling the colorscheme
     undercurl = true, -- enable undercurls
     commentStyle = { italic = true },
     functionStyle = {},
@@ -20,14 +20,12 @@ configs.kanagawa = function()
     overrides = function(colors) -- add/modify highlights
       return {}
     end,
-    theme = "dragon",  -- Load "wave" theme when 'background' option is not set
+    theme = "wave",    -- Load "wave" theme when 'background' option is not set
     background = {     -- map the value of 'background' option to a theme
       dark = "dragon", -- try "dragon" !
       light = "lotus"
     },
   })
-
-  -- setup must be called before loading
-  vim.cmd("colorscheme kanagawa-dragon")
+  kanagawa.load("dragon")
 end
 return configs

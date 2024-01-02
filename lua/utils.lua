@@ -1,6 +1,16 @@
 --https://github.com/yujiqo/nvim
 local utils = {}
 
+utils.filetypes = {
+  'html', 'javascript', 'typescript', 'svelte',
+  'php',
+}
+utils.skip_tags = {
+  'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
+  'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'menuitem'
+}
+
+
 
 utils.parsers = {
   "css",
@@ -10,7 +20,7 @@ utils.parsers = {
   "lua",
   "luadoc",
   "vim",
-  "css",
+  "vimdoc",
   "scss",
   "typescript",
   "json",
@@ -26,27 +36,6 @@ utils.servers = {
   "cssls",
 }
 
-utils.server_configs = {
-  lua_ls = function()
-    return {
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT'
-          },
-          diagnostics = {
-            globals = { 'vim' },
-          },
-          workspace = {
-            library = {
-              vim.env.VIMRUNTIME,
-            }
-          }
-        }
-      }
-    }
-  end,
-}
 
 
 utils.setup_theme = function(setup_type, setup_name)
