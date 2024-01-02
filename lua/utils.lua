@@ -59,4 +59,12 @@ utils.setup_plugin = function(setup_type, setup_name, plugin_category)
     return load(('require("configs.%s").%s()'):format(plugin_category, setup_name))
   end
 end
+
+utils.map = function(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 return utils
