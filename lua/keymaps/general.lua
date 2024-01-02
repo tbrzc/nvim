@@ -4,28 +4,26 @@ local g = vim.g
 g.mapleader = " "
 
 -- Vim for Colemak
-map("", "n", "j", {})
-map("", "e", "k", {})
-map("", "i", "l", {})
-map("", "j", "e", {})
-map("", "k", "n", {})
-map("", "l", "i", {})
-map("", "K", "N", {})
-map("", "N", "5j", {})
-map("", "E", "5k", {})
-map("", "L", "I", {})
+map("", "s", "j", {})
+map("", "r", "k", {})
+map("", "t", "l", {})
+map("", "a", "h", {})
 
-map("", "H", "0", {})
-map("", "I", "$", {})
+
+map("", "S", "5j", {})
+map("", "R", "5k", {})
+
+map("", "A", "0", {})
+map("", "T", "$", {})
 
 -- General keymaps
 
-map("i", "ii", "<ESC>")                 -- exit insert mode with ii
-map("n", "<leader>wq", ":wq<CR>")       -- save and quit
+map("i", "ii", "<ESC>")                         -- exit insert mode with ii
+map("n", "<leader>wq", ":wq<CR>")               -- save and quit
 map("n", "<leader>qq", ":q!<CR>")
-map("n", "<leader>qa", ":quitall<CR>")  -- quit without saving
-map("n", "<leader>ww", ":w<CR>")        -- save
-map("n", "op", ":!open <c-r><c-a><CR>") -- open URL under cursor
+map("n", "<leader>qa", ":quitall<CR>")          -- quit without saving
+map("n", "<leader>ww", ":w<CR>")                -- save
+map("n", "<leader>op", ":!open <c-r><c-a><CR>") -- open URL under cursor
 
 
 
