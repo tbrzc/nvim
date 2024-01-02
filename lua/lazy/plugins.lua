@@ -41,9 +41,7 @@ local plugins = {
     "andrewferrier/wrapping.nvim",
     config = plugin("c", "wrapping", "misc")
   },
-  {
-    'mg979/vim-visual-multi'
-  },
+  --TODO: multiple cursors
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

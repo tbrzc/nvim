@@ -18,12 +18,12 @@ map("", "T", "$", {})
 
 -- General keymaps
 
-map("i", "ii", "<ESC>")                         -- exit insert mode with ii
-map("n", "<leader>wq", ":wq<CR>")               -- save and quit
+map("i", "ii", "<ESC>")                 -- exit insert mode with ii
+map("n", "<leader>wq", ":wq<CR>")       -- save and quit
 map("n", "<leader>qq", ":q!<CR>")
-map("n", "<leader>qa", ":quitall<CR>")          -- quit without saving
-map("n", "<leader>ww", ":w<CR>")                -- save
-map("n", "<leader>op", ":!open <c-r><c-a><CR>") -- open URL under cursor
+map("n", "<leader>qa", ":quitall<CR>")  -- quit without saving
+map("n", "<leader>ww", ":w<CR>")        -- save
+map("n", "gx", ":!open <c-r><c-a><CR>") -- open URL under cursor
 
 
 
@@ -38,7 +38,7 @@ map("n", "<leader>sx", ":close<CR>")   -- close split window
 
 map("n", "<C-i>", "<C-w>-")            -- make split window height shorter-
 map("n", "<C-e>", "<C-w>+")            -- make split windows height taller
-map("n", "<C-n>", "<C-w>>5")           -- make split windows width bigger
+map("n", "<C-n>", "<C-w>>5")           --fic make split windows width bigger
 map("n", "<C-o>", "<C-w><5")           -- make split windows width smaller
 -- Change split orientation
 map('n', '<leader>ch', '<C-w>t<C-w>K') -- change vertical to horizontal
