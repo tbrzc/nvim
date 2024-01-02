@@ -8,8 +8,14 @@ utils.parsers = {
   "html",
   "javascript",
   "lua",
+  "luadoc",
+  "vim",
+  "css",
   "scss",
   "typescript",
+  "json",
+  "svelte",
+  "jsdoc",
 }
 
 utils.servers = {

@@ -2,20 +2,10 @@ local utils = require("utils")
 
 local plugin = utils.setup_plugin
 local theme = utils.setup_theme
-local config = require("configs.ui")
 
 local plugins = {
   --- theme ---
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "meuter/lualine-so-fancy.nvim",
-    },
-    opts = config.lualine
 
-
-  },
   {
 
     "rebelot/kanagawa.nvim",
@@ -24,24 +14,6 @@ local plugins = {
     config = theme("c", "kanagawa")
 
   },
-  --PERF:
-  --{
-  --  "dstein64/vim-startuptime"
-  --},
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = plugin("d", "nvim-tree")
-  },
-  {
-    "andrewferrier/wrapping.nvim",
-    config = plugin("c", "wrapping", "misc")
-  },
-  --TODO: multiple cursors
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -52,20 +24,6 @@ local plugins = {
     config = plugin("c", "treesitter", "misc")
 
   },
-  {
-    'nvim-telescope/telescope.nvim',
-    lazy = false,
-    branch = '0.1.x',
-    dependencies = {
-      { 'nvim-lua/plenary.nvim' },
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make'
-      },
-      config = plugin("c", "telescope", "misc"),
-    }
-  },
-
   {
     "williamboman/mason.nvim",
   },
@@ -81,12 +39,6 @@ local plugins = {
     dependencies = { "rafamadriz/friendly-snippets" },
 
     config = plugin("c", "luasnip", "misc"),
-  },
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    lazy = true,
-    config = false,
   },
 
   {
@@ -116,6 +68,11 @@ local plugins = {
 
   },
   {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-buffer",
@@ -128,68 +85,8 @@ local plugins = {
       "windwp/nvim-autopairs",
     },
     config = plugin("c", "cmp", "lsp"),
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {},
-    config = plugin("c", "ibl", "misc"),
-  },
-  {
-    'kevinhwang91/nvim-ufo',
-    dependencies = { 'kevinhwang91/promise-async' },
-    config = plugin("c", "ufo", "misc"),
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = plugin("c", "gitsigns", "misc")
-  },
-  {
-    "tpope/vim-fugitive",
-    cmd = { "Git" }
-  },
-  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
-  {
-    'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
-    },
-    lazy = false,
-  },
-  {
-    'stevearc/oil.nvim',
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = config.todo_comments
-  },
-  {
-    "brenoprata10/nvim-highlight-colors",
-    config = plugin("d", "nvim-highlight-colors")
-  },
-  {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = plugin("d", "bufferline")
-  },
-  {
-    'goolord/alpha-nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = plugin("c", "alpha", "misc")
-  },
-  {
-    'rmagatti/auto-session',
-    config = plugin("c", "auto_session", "misc")
-  },
-  { "folke/neodev.nvim",
-    "folke/which-key.nvim",
-    { "folke/neoconf.nvim", cmd = "Neoconf" },
   }
+
 
 
 }

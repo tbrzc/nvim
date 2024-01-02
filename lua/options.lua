@@ -1,71 +1,58 @@
------------------------------------------------------------
--- General Neovim settings and configuration
--- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/options.lua
------------------------------------------------------------
--- Default options are not included
--- See: https://neovim.io/doc/user/vim_diff.html
--- [2] Defaults - *nvim-defaults*
+-- DOCS:
+-- https://neovim.io/doc/user/options.html
+-- https://neovim.io/doc/user/vim_diff.html
+--   [2] Defaults - *nvim-defaults*
 
-local g = vim.g     -- Global variables
-local opt = vim.opt -- Set options (global/buffer/windows-scoped)
-local o = vim.o
------------------------------------------------------------
--- See: https://neovim.io/doc/user/options.html
--- General
------------------------------------------------------------
-local options = {
-  completeopt = "menu,menuone,noselect",
-  mouse = "a",      -- Enable mouse support
-  swapfile = false, -- Don't use swapfile
-  fileencoding = "utf-8",
-  -----------------------------------------------------------
-  -- Neovim UI
-  -----------------------------------------------------------
-  number = true,        -- Show line number
-  showmatch = true,     -- Highlight matching parenthesis
-  --foldmethod = "marker", -- Enable folding (default 'foldmarker')
-  colorcolumn = "80",   -- Line lenght marker at 80 columns
-  splitright = true,    -- Vertical split to the right
-  splitbelow = true,    -- Horizontal split to the bottom
-  ignorecase = true,    -- Ignore case letters when search
-  smartcase = true,     -- Ignore lowercase for the whole pattern
-  linebreak = true,     -- Wrap on word boundary
-  termguicolors = true, -- Enable 24-bit RGB colors
-  laststatus = 3,       -- Set global statusline
-  cursorline = true,    -- Enable highlighting of the current line
+
+
+local g             = vim.g
+local opt           = vim.opt
+local options       = {
+  -- UI
+  background = 'dark',
+  number = true,
+  laststatus = 3,
+  termguicolors = true,
+  showmatch = true,
+  cursorline = true,
+  cursorlineopt = "number",
+  -- CPU
+  hidden = true,
+  history = 100,
+  synmaxcol = 240,
+  updatetime = 250,
+  swapfile = false,
+  -- INDENT
+  shiftwidth = 2,
+  tabstop = 2,
+  smartindent = true,
   breakindent = true,
+  expandtab = true,
+  -- EDITOR
+  splitright = true,
+  splitbelow = true,
   relativenumber = true,
-  textwidth = 80,
-  wrapmargin = 2,
-  -----------------------------------------------------------
-  -- Editing
-  -----------------------------------------------------------
+  clipboard = "unnamed,unnamedplus",
+  completeopt = "menu,menuone,noselect",
+  mouse = "a",
   undofile = true,
-  -----------------------------------------------------------
-  -- Tabs, indent
-  -----------------------------------------------------------
-  expandtab = true,   -- Use spaces instead of tabs
-  shiftwidth = 2,     -- Shift 2 spaces when tab
-  tabstop = 2,        -- 1 tab == 2 spaces
-  smartindent = true, -- Autoindent new lines
-
-  -----------------------------------------------------------
-  -- Memory, CPU
-  -----------------------------------------------------------
-  hidden = true,     -- Enable background buffers
-  history = 100,     -- Remember N lines in history
-  lazyredraw = true, -- Faster scrolling
-  synmaxcol = 240,   -- Max column for syntax highlight
-  updatetime = 250   -- ms to wait for trigger an event
+  ignorecase = true,
+  smartcase = true,
+  fileencoding = "utf-8",
+  -- FOLDING
+  foldcolumn = '0',
+  foldlevel = 99,
+  foldlevelstart = 99,
+  foldenable = true,
 }
-local disabled_built_ins = {
+local builtin_plugs = {
   "2html_plugin",
   "tohtml",
   "getscript",
   "getscriptPlugin",
   "gzip",
   "logipat",
-  -- https://neovim.io/doc/user/pi_netrw.html
+  --https://neovim.io/doc/user/pi_netrw.html
   "netrw",
   "netrwPlugin",
   "netrwSettings",
@@ -89,33 +76,11 @@ local disabled_built_ins = {
   "ftplugin",
   "editorconfig"
 }
-local fold_options = {
-  foldcolumn = '0', -- '0' is not bad
-  foldlevel = 99,   -- Using ufo provider need a large value, feel free to decrease the value
-  foldlevelstart = 99,
-  foldenable = true,
-}
---vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
-vim.o.background = 'dark'
------------------------------------------------------------
--- Startup
------------------------------------------------------------
-
--- Disable nvim intro
+-- Desactiva la intro
 opt.shortmess:append "sI"
---- clipboard ---
-opt.clipboard:prepend { "unnamed", "unnamedplus" } -- windows
--- opt.clipboard:append { "unnamedplus" } -- unix
-
--- Disable builtin plugins
-for _, plugin in pairs(disabled_built_ins) do
+for _, plugin in ipairs(builtin_plugs) do
   g["loaded_" .. plugin] = 1
 end
--- Load options
 for k, v in pairs(options) do
   opt[k] = v
-end
-for k, v in pairs(fold_options) do
-  o[k] = v
 end

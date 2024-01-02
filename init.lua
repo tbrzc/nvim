@@ -2,6 +2,3 @@
 require('keymaps')
 require('options')
 require('lazy.setup')
-require('configs.remaps')
-
---require('autocmds')

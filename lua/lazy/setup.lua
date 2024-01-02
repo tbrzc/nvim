@@ -1,5 +1,3 @@
--- Bootstrap lazy.nvim
-local config = require("lazy.config")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -14,4 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
-require("lazy").setup("lazy.plugins", config)
+require("lazy").setup("lazy.plugins", {
+    change_detection = {
+        enabled = true,
+        notify = false,
+    },
+    ui = {
+        border = "rounded"
+    }
+})
