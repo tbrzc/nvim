@@ -1,5 +1,5 @@
 local ast = {}
-
+--inspectree
 ast.treesitter = function()
     local treesitter = require("nvim-treesitter.configs")
     treesitter.setup {
