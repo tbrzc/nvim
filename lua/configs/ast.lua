@@ -2,60 +2,73 @@ local ast = {}
 
 ast.treesitter = function()
     local treesitter = require("nvim-treesitter.configs")
-    local utils = require("utils")
     treesitter.setup {
-        ensure_installed = utils.parsers,
+        ensure_installed = require("utils").parsers,
         highlight = {
             enable = true,
         },
-        indent = {
+        autotag = {
             enable = true,
         },
+        refactor = {
+            highlight_definitions = {
+                enable = true,
+                clear_on_cursor_move = true,
+            },
+            highlight_current_scope = { enable = true },
+            smart_rename = {
+                enable = true,
+                keymaps = {
+                    smart_rename = ";", --grr
+                },
+            },
+
+        },
+
         textobjects = {
             select = {
                 enable = true,
                 lookahead = true,
                 keymaps = {
-                    ['pi'] = '@parameter.inner',
+                    ["fo"] = "@function.outer",
+                    ["fi"] = "@function.inner",
+                    ["co"] = "@conditional.outer",
+                    ["ci"] = "@conditional.inner",
+                    ["po"] = "@parameter.outer",
+                    ["pi"] = "@parameter.inner",
+                    ["lo"] = "@loop.outer",
+                    ["li"] = "@loop.inner",
+
                 },
             },
-
         },
-        autotag = {
+        treesittercontext = {
             enable = true,
-            filetypes = utils.filetypes,
-            skip_tags = utils.skip_tags,
         },
         move = {
             enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
+            set_jumps = true,
             goto_next_start = {
                 [']m'] = '@function.outer',
-                [']]'] = '@class.outer',
             },
             goto_next_end = {
                 [']M'] = '@function.outer',
-                [']['] = '@class.outer',
             },
             goto_previous_start = {
                 ['[m'] = '@function.outer',
-                ['[['] = '@class.outer',
             },
             goto_previous_end = {
                 ['[M'] = '@function.outer',
-                ['[]'] = '@class.outer',
             },
         },
-        swap = {
+        incremental_selection = {
             enable = true,
-            swap_next = {
-                ['<S-o>'] = '@parameter.inner',
-            },
-            swap_previous = {
-                ['<S-n>'] = '@parameter.inner',
+            keymaps = {
+                init_selection = '<c-z>',
+                node_incremental = '<c-z>',
+                node_decremental = '<c-x>',
             },
         },
-
     }
 end
 return ast

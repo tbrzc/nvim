@@ -5,7 +5,18 @@ local theme = utils.setup_theme
 
 local plugins = {
 
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    dependencies = {
+      'windwp/nvim-ts-autotag',
+      'nvim-treesitter/nvim-treesitter-refactor',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
+    },
+    config = plugin("c", "treesitter", "ast")
 
+  },
   {
 
     "rebelot/kanagawa.nvim",
@@ -15,44 +26,9 @@ local plugins = {
 
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = "VeryLazy",
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'windwp/nvim-ts-autotag',
-    },
-    config = plugin("c", "treesitter", "ast")
-
-  },
-  {
-    "williamboman/mason.nvim",
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-  },
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    lazy = true,
-    config = false,
-  },
-
-  {
-    'neovim/nvim-lspconfig',
-    -- dependencies = {
-    --   { 'hrsh7th/cmp-nvim-lsp' },
-    -- },
-    config = plugin("c", "lspconfig", "lsp")
-  },
-
-  {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {}
   },
-
-
-
 }
 return plugins
