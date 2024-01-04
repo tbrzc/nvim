@@ -1,6 +1,8 @@
 local utils = require("utils")
 local map = utils.map
 local g = vim.g
+local keymap = vim.keymap
+local diagnostic = vim.diagnostic
 g.mapleader = " "
 
 map("", "s", "j", {})
@@ -41,3 +43,8 @@ map("n", "<leader>to", ":tabnew<CR>")
 map("n", "<leader>tx", ":tabclose<CR>")
 map("n", "<leader>tn", ":tabn<CR>")
 map("n", "<leader>tp", ":tabp<CR>")
+
+keymap.set('n', '<space>e', diagnostic.open_float)
+keymap.set('n', '[d', diagnostic.goto_prev)
+keymap.set('n', ']d', diagnostic.goto_next)
+keymap.set('n', '<space>q', diagnostic.setloclist)

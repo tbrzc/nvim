@@ -1,7 +1,6 @@
 --https://github.com/yujiqo/nvim
 local utils = {}
 
-
 utils.parsers = {
   "css",
   "gitignore",
@@ -25,8 +24,6 @@ utils.servers = {
   "tailwindcss",
   "cssls",
 }
-
-
 
 utils.setup_theme = function(setup_type, setup_name)
   if setup_type == "d" then
@@ -52,4 +49,5 @@ utils.map = function(mode, lhs, rhs, opts)
   end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
+
 return utils
