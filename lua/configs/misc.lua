@@ -1,5 +1,4 @@
 local misc = {}
---inspectree
 
 misc.ibl = function()
   require("ibl").setup({

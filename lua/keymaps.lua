@@ -48,3 +48,6 @@ keymap.set('n', '<space>e', diagnostic.open_float)
 keymap.set('n', '[d', diagnostic.goto_prev)
 keymap.set('n', ']d', diagnostic.goto_next)
 keymap.set('n', '<space>q', diagnostic.setloclist)
+
+keymap.set('n', 'zR', require('ufo').openAllFolds)
+keymap.set('n', 'zM', require('ufo').closeAllFolds)

@@ -3,6 +3,11 @@ local cmp = require("cmp")
 --inspectree
 autocomplete.nvim_cmp = function()
   cmp.setup {
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
     mapping = {
       ['<C-p>'] = cmp.mapping.scroll_docs(-4),
       ['<C-n>'] = cmp.mapping.scroll_docs(4),
@@ -17,7 +22,7 @@ autocomplete.nvim_cmp = function()
       { name = 'path' },
       { name = 'cmdline' },
     },
-    {{ name = 'buffer' },}
+    { { name = 'buffer' }, }
   }
 
   cmp.setup.cmdline({ '/', '?' }, {

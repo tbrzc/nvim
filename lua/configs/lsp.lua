@@ -33,6 +33,10 @@ lsp.lspconfig = function()
   })
   require('neodev').setup({})
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+  }
   local lspconfig = require('lspconfig')
   for _, server in pairs(servers) do
     lspconfig[server].setup {
@@ -48,5 +52,6 @@ lsp.lspconfig = function()
       }
     }
   })
+  require('ufo').setup()
 end
 return lsp

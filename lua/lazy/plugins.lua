@@ -8,6 +8,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    dependencies = { "windwp/nvim-ts-autotag", },
     config = plugin("c", "treesitter", "ast")
 
   },
@@ -28,6 +29,8 @@ local plugins = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
     },
     config = plugin("c", "nvim_cmp", "cmp")
   },
@@ -48,5 +51,7 @@ local plugins = {
     opts = {},
     config = plugin("c", "ibl", "misc")
   },
+  { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' }
+
 }
 return plugins
