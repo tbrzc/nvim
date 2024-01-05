@@ -51,7 +51,13 @@ local plugins = {
     opts = {},
     config = plugin("c", "ibl", "misc")
   },
-  { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' }
+  { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = plugin("c","copilot", "cmp")
+  }
 
 }
 return plugins
