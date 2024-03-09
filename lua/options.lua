@@ -2,7 +2,6 @@
 -- https://neovim.io/doc/user/options.html
 -- https://neovim.io/doc/user/vim_diff.html
 --   [2] Defaults - *nvim-defaults*
-vim.cmd("colorscheme habamax")
 local opt = vim.opt
 local options = {
 	background     = dark,
