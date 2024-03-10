@@ -6,9 +6,9 @@ function plugin.config()
 	require('kanagawa').setup({
 		compile = true, -- enable compiling the colorscheme
 		undercurl = true, -- enable undercurls
-		commentStyle = { italic = true },
+		commentStyle = { italic = false },
 		functionStyle = {},
-		keywordStyle = { italic = true },
+		keywordStyle = { italic = false },
 		statementStyle = { bold = true },
 		typeStyle = {},
 		transparent = false, -- do not set background color
