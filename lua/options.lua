@@ -12,20 +12,26 @@ local options = {
 	-----------------------------------------------------------
 	-- Tabs, indent
 	-----------------------------------------------------------
-	shiftwidth     = 4, -- the number of spaces inserted for each indentation
-	tabstop        = 4, -- insert 2 spaces for a tab
-	expandtab      = true, -- Use spaces instead of tabs
-
 	splitright     = true,
 	splitbelow     = true,
 	relativenumber = true,
-	clipboard      = "unnamedplus",
-	mouse          = "a",
 	undofile       = true,
+	colorcolumn    = '80',
+	synmaxcol      = 240,
 	ignorecase     = true, -- All your searches will be case insensitive
 	smartcase      = true, -- Your search will be case sensitive if it contains an uppercase letter
 	swapfile       = false,
 	termguicolors  = true,
+	history        = 100,
+	undolevels     = 100,
+
+	-----------------------------------------------------------
+	-- Tabs, indent
+	-----------------------------------------------------------
+	expandtab      = true, -- Use spaces instead of tabs
+	shiftwidth     = 4, -- Shift 4 spaces when tab
+	tabstop        = 4, -- 1 tab == 4 spaces
+	smartindent    = true, -- Autoindent new lines
 }
 opt.shortmess:append "sI"
 for k, v in pairs(options) do

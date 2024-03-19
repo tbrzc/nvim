@@ -2,6 +2,7 @@ local opts = {
 	indent = {
 		char = "│",
 		tab_char = "│",
+		smart_indent_cap = true,
 	},
 	exclude = {
 		filetypes = {
