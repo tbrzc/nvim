@@ -19,15 +19,16 @@ local config = {
 			start = "󰠠",
 			task = "",
 			list = {
-			  "●",
-			  "➜",
-			  "󱕦",
-			  "‒",
+				"●",
+				"➜",
+				"󱕦",
+				"‒",
 			},
+		}
 	},
 	change_detection = {
 		notify = false,
 	}
-}}
+}
 
 return config
