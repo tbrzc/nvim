@@ -6,7 +6,7 @@ function theme.config()
         compile = true,
         commentStyle = { italic = false },
         keywordStyle = { italic = false},
-        transparent = true,
+        transparent = false,
         dimInactive = true,
         terminalColors = true,
         background = {
