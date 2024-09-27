@@ -4,11 +4,8 @@ local theme = {
 function theme.config()
 	require('kanagawa').setup({
         compile = true,
-        commentStyle = { italic = false },
         keywordStyle = { italic = false},
-        transparent = false,
         dimInactive = true,
-        terminalColors = true,
         background = {
             dark = "wave",
             light = "lotus"

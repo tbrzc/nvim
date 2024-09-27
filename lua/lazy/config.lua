@@ -1,4 +1,8 @@
 local config = {
+	spec = {
+		-- import your plugins
+		{ import = "lazy.plugins" },
+	},
 	ui = {
 		border = "rounded",
 		icons = {
@@ -26,6 +30,7 @@ local config = {
 			},
 		}
 	},
+	checker = { enabled = true },
 	change_detection = {
 		notify = false,
 	}

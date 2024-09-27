@@ -1,4 +1,4 @@
-return {
+local utils = {
 	parsers = {
 		--always install these
 		"lua",
@@ -12,11 +12,16 @@ return {
 		"typescript"
 	},
 	servers = {
-		"html",
+		--always install these
 		"lua_ls",
-		"cssls",
-		"tsserver",
 		"vimls",
-		"clangd"
+		-- html, templ, css, scss, less
+		"html",
+		"cssls",
+		-- js,
+		"quick_lint_js", --linter
+		"harper_ls" -- English grammar checker
 	}
 }
+
+return utils
